@@ -116,3 +116,92 @@ Estrutura inicial focada na modelagem do sistema caminhão–escavadeira e defin
 ## 📄 Licença
 
 A definir.
+
+
+---
+## Estrutura do projeto
+
+```
+MiningDES/
+├── README.md
+├── pyproject.toml
+├── .gitignore
+│
+├── config/
+│   ├── simulation.yaml
+│   ├── optimization.yaml
+│   ├── api.yaml
+│   └── streamlit.yaml
+│
+├── data/
+│   ├── input/
+│   └── output/
+│
+├── miningdes/
+│   ├── __init__.py
+│
+│   ├── core/                 # DES puro
+│   ├── entities/
+│   ├── processes/
+│   ├── dispatch/
+│   ├── quality/
+│   ├── optimization/
+│   ├── metrics/
+│   ├── analysis/
+│   ├── visualization/
+│
+│   ├── domain/               # conceitos de negócio
+│   │   ├── scenario.py
+│   │   ├── solution.py
+│   │   └── kpi.py
+│
+│   ├── application/          # orquestração
+│   │   ├── services.py       # run_simulation, run_optimization
+│   │   ├── scenario_builder.py
+│   │   └── result_builder.py
+│
+│   ├── adapters/             # mundo externo ↔ núcleo
+│   │   ├── input/
+│   │   │   ├── json_adapter.py
+│   │   │   ├── db_adapter.py
+│   │   │   └── validation.py
+│   │   │
+│   │   └── output/
+│   │       ├── json_serializer.py
+│   │       ├── db_writer.py
+│   │       └── report_generator.py
+│
+│   └── utils/
+│
+├── api/
+│   ├── main.py               # FastAPI / Flask
+│   ├── routes/
+│   │   ├── scenarios.py
+│   │   ├── optimization.py
+│   │   └── results.py
+│   └── schemas/              # Pydantic
+│       ├── scenario.py
+│       ├── request.py
+│       └── response.py
+│
+├── web/
+│   ├── streamlit_app.py
+│   ├── pages/
+│   │   ├── scenario_setup.py
+│   │   ├── optimization.py
+│   │   └── results.py
+│   └── components/
+│       ├── charts.py
+│       └── tables.py
+│
+├── experiments/
+├── notebooks/
+├── tests/
+│   ├── core/
+│   ├── application/
+│   ├── api/
+│   └── adapters/
+│
+├── scripts/
+└── docs/
+```
